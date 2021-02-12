@@ -1,0 +1,30 @@
+{
+  "name": "gsak-macro",
+  "displayName": "GSAK Macro",
+  "description": "Syntax Highlighting for GSAK Macro Language",
+  "version": "0.0.2",
+  "publisher": "hulmgulm",
+  "engines": {
+    "vscode": "^1.10.0"
+  },
+  "categories": [
+    "Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "gsk",
+      "aliases": ["GSAK Macro", "gsk"],
+      "extensions": [".gsk"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "gsk",
+      "scopeName": "source.gsk",
+      "path": "./syntaxes/gsk.tmLanguage.json"
+    }],
+    "configurationDefaults": {
+      "[gsk]": {}
+    }
+  },
+  "icon": "images/icon.png"
+}

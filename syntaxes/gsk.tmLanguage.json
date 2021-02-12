@@ -1,0 +1,71 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "GSAK Macro",
+  "patterns": [{
+    "include": "#comment"
+  }, {
+    "include": "#keyword"
+  }, {
+    "include": "#string"
+  }, {
+    "include": "#support"
+  }, {
+    "include": "#variable"
+  }, {
+    "include": "#invalid"
+  }],
+  "repository": {
+    "keyword": {
+      "patterns": [{
+        "name": "entity.name.function.gsk",
+        "match": "(?i)\\b(ADDNEW|BACKUP|CACHEMATE|CANCEL|CANCELFILTER|CENTER|CENTRE|CHOOSE|CLIP|DATABASE|DATARESTORE|DATASAVE|DEBUG|DECLARE|DELAY|DELETE|DEPRECATED|DISPLAYLIMIT|DUALSCREEN|EXIT|EXPORT|FILECOPY|FILEERASE|FILEOPEN|FILTER|GCGETCACHES|GCGETLOGS|GCGETNEWTOKEN|GCGETPQ|GCPUBLISHFETCH|GCREFRESH|GCSTATUSCHECK|GCSWAPTOKEN|GCUPDATEUSERINFO|GEOCACHERCOUNTS|GETMAIL|GLOBALREPLACE|GOSUB|GOTO|GPIDATEFIX|GPSRECEIVE|GRAB|GRABIMAGES|IDCHECK|INCLUDE|INPUT|LOAD|MACRO|MACRODELETE|MACROFLAG|MACROSET|MACSETTINGS|MAKEGGZ|MAKETRANSLATION|MFILTER|MOVECOPY|MSGOK|NOERROR|OPTION|PAUSE|PLAYWAV|PURGELOGS|PURGENOTE|REFRESHCUSTOMHTML|RESTORE|RESYNC|RESYNCLOGS|RETURN|RUNPGM|SETCOLOR|SHOWSTATUS|SHOWSTOP|SPEEDMODE|SPLITSCREEN|SQLGETCLOSE|SQLNEXT|SQLSORT|TABLE|TIMER|TRANSACTION|UPDATECHECK|UPDATEELEVATION|USERFLAG|VERCHECK|VIEW|VSUB|WEB|XMLTOSQLITE)\\b"
+      }, {
+        "name": "keyword.operator.gsk",
+        "match": "(?i)(\\b(and|or|not)\\b)|(\\+|-|%|#|\\*|\\/|\\^|==?|~=|<=?|>=?|(?<!\\.)\\.{2}(?!\\.))"
+      }, {
+        "name": "keyword.other.gsk",
+        "match": "(?i)\\b(BeginCase|BeginSub|If|<Data>|FileRead|Repeat|While|Break|BreakRepeat|Case|Else|ExitSub|Otherwise|StopRead|EndCase|<EndData>|EndIf|EndRead|EndSub|EndWhile|Until)\\b"
+      }]
+    },
+    "string": {
+      "name": "string.quoted.double.gsk",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": []
+    },
+    "variable": {
+      "patterns": [{
+        "name": "variable.language.gsk",
+        "match": "(?i)(\\$[a-z0-9][a-z0-9_]*)\\b"
+      }]
+    },
+    "support": {
+      "patterns": [{
+        "name": "support.type.gsk",
+        "match": "(?i)\\b(Boolean|False|Numeric|String|True)\\b"
+      }, {
+        "name": "support.constant.gsk",
+        "match": "(?i)(\\$d_aCode|\\$d_aId|\\$d_aInc|\\$d_aName|\\$d_Archived|\\$d_Bearing|\\$d_CacheId|\\$d_CacheType|\\$d_cByUser|\\$d_cCode|\\$d_cComment|\\$d_cDate|\\$d_cFlag|\\$d_Changed|\\$d_cLat|\\$d_cLon|\\$d_cName|\\$d_Code|\\$d_Color|\\$d_Container|\\$d_Country|\\$d_County|\\$d_cParent|\\$d_cPrefix|\\$d_created|\\$d_cType|\\$d_cUrl|\\$d_Degrees|\\$d_Difficulty|\\$d_Distance|\\$d_DNF|\\$d_DNFDate|\\$d_Elevation|\\$d_FavPoints|\\$d_Found|\\$d_FoundByMeDate|\\$d_FoundCount|\\$d_FTF|\\$d_GcNote|\\$d_Guid|\\$d_HasCorrected|\\$d_HasTravelBug|\\$d_HasUserNote|\\$d_Hints|\\$d_IsPremium|\\$d_kAfterCounty|\\$d_kAfterLat|\\$d_kAfterLon|\\$d_kAfterState|\\$d_kBeforeCounty|\\$d_kBeforeLat|\\$d_kBeforeLon|\\$d_kBeforeState|\\$d_kCode|\\$d_kType|\\$d_LastFoundDate|\\$d_LastGPXDate|\\$d_LastLog|\\$d_LastUserDate|\\$d_Latitude|\\$d_LatOriginal|\\$d_lby|\\$d_lDate|\\$d_lEncoded|\\$d_lIsowner|\\$d_llat|\\$d_lLogId|\\$d_llon|\\$d_Lock|\\$d_LongDescription|\\$d_LongHTM|\\$d_Longitude|\\$d_LonOriginal|\\$d_lOwnerId|\\$d_lParent|\\$d_lText|\\$d_lTime|\\$d_ltype|\\$d_MacroFlag|\\$d_MacroSort|\\$d_Name|\\$d_NumberOfLogs|\\$d_OwnerId|\\$d_OwnerName|\\$d_PlacedBy|\\$d_PlacedDate|\\$d_Resolution|\\$d_ShortDescription|\\$d_ShortHTM|\\$d_SmartName|\\$d_SmartOverride|\\$d_Source|\\$d_State|\\$d_Status|\\$d_Symbol|\\$d_TempDisabled|\\$d_Terrain|\\$d_TravelBugs|\\$d_Url|\\$d_User2|\\$d_User3|\\$d_User4|\\$d_UserData|\\$d_UserFlag|\\$d_UserNote|\\$d_UserNoteDate|\\$d_UserSort|\\$d_Watch)\\b"
+      }, {
+        "name": "constant.language.gsk",
+        "match": "(?i)(\\$_AltKey|\\$_AppData|\\$_CallingMacro|\\$_Count|\\$_CrLf|\\$_CtrlKey|\\$_CurrentDatabase|\\$_CurrentDataPath|\\$_DbCount|\\$_DbNotes|\\$_dbPath|\\$_debug|\\$_Degrees|\\$_DisplayLimitStatus|\\$_DualScreen|\\$_EOL|\\$_ExePath|\\$_FilterActive|\\$_FilterCount|\\$_FormLeft|\\$_FormTop|\\$_GcApiError|\\$_GcApiVer|\\$_GcCorrect|\\$_Global|\\$_GlobalJavaScript|\\$_GoogleApiKey|\\$_GoogleLat|\\$_GoogleLon|\\$_HTML|\\$_HtmlBody|\\$_HtmlFooter|\\$_HtmlFormat|\\$_HtmlHeader|\\$_ImageClickLeft|\\$_ImageClickTop|\\$_Install|\\$_MacroLevel|\\$_MacroParms|\\$_MacVersion|\\$_NewLine|\\$_OrderBy|\\$_OziColour|\\$_Pi|\\$_PublishCode|\\$_PublishId1|\\$_PublishId2|\\$_PublishLogsPreview|\\$_Quote|\\$_RunMode|\\$_ShiftKey|\\$_SortBy|\\$_Special|\\$_Splitscreen|\\$_sql|\\$_SQLEol|\\$_SqlEol0|\\$_SqlEol1|\\$_SqlEol2|\\$_SqlEol3|\\$_SqlEol4|\\$_SqlGrid|\\$_sqlrows|\\$_StartAlt|\\$_StartCtl|\\$_StartCtrl|\\$_StartShift|\\$_Symbol|\\$_Tab|\\$_Time|\\$_Timer|\\$_Today|\\$_Units|\\$_Version|\\$_Where)\\b"
+      }, {
+        "name": "support.function.gsk",
+        "match": "(?i)\\b(Abs|AddStr|AllTrim|AppendFile|ArcCos|ArcCosh|ArcSin|ArcSinh|ArcTan|ArcTan2|ArcTanh|Array|Asc|At|AtStart|BBcode|BoolToStr|CacheType|ChildType|Chr|CodeMatch|Cos|CosH|CoTan|CsvGet|CustomConfig|CustomFormat|CustomGet|CustomPut|DataBaseExists|DateDiff|DateFormat|DateToSql|DateToString|DegToRad|Dir|DriveExists|EditForm|Elevation|EntityDecode|Equal|Eval|Exp|Extract|FileExists|FolderExists|ForcePeriod|Form|FormatNumber|Frac|GarminApi|GCalc|GcApi|GcBalance|gcFavPoints|GetClipText|GetCountry|GetCounty|GetEnvV|GetFile|GetNear|GetPolygon|GetSil|GetState|GetUrl|GPSinfo|GsCodeToNum|HttpEncode|ImageInfo|Int|InTransaction|IsEmpty|IsOwner|Keep|Left|Len|List|Ln|Log|Lower|MacHeader|MimeDecode|MimeEncode|mtp|Not|NumToGsCode|NumToStr|PngToJpg|Pop3|PostFile|PostUrl|PublishTags|PutFile|Qkeyval|Quote|RadToDeg|Random|RegEx|RegExCount|RegExData|RegExEscape|RegExPos|RegExReplace|RegExSub|Remove|RemoveVar|Replace|RestoreFilter|RGBColor|Right|Rot13|Round|SaveFilter|Seek|Sin|SinH|SlashAdd|SmartName|SqlGet|Sqlite|SqlQuote|SqlToDate|SqlToHtml|Sqr|Sqrt|Str|StringToDate|StrToBool|Substr|SysInfo|SysVarPath|Tan|Tanh|TextOut|Time|TotChild|Translate|Trim|Upper|Usersort|UTF16|UTF8|Val|ValidDate|VarExists|YesNo|ZipFile)\\b"
+      }]
+    },
+    "comment": {
+      "patterns": [{
+        "name": "comment.line.number-sign.gsk",
+        "match": "(#.*)\\n"
+      }]
+    },
+    "invalid": {
+      "patterns": [{
+        "name": "invalid.deprecated.gsk",
+        "match": "(?i)\\b(DbToSql|DbToSqlite|GeoCalc|HTML|PostUrlIndy|ShowForm|Sql|GETSPECIAL|OPENFILE|PREPROCESS|REPLACE|SET|SORT|SQLITECACHES)\\b"
+      }]
+    }
+  },
+  "scopeName": "source.gsk"
+}
